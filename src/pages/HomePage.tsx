@@ -34,12 +34,34 @@ export default function HomePage() {
             id="hero-heading"
             className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text tracking-tight leading-tight"
           >
-            Fix it. Don&rsquo;t fake it.
+            Making the web work for everyone.
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-lg sm:text-xl text-text-secondary leading-relaxed">
-            The only accessibility platform that fixes your website&rsquo;s source
-            code&nbsp;&mdash; not paints over it with an overlay.
+          <p className="mt-6 max-w-3xl mx-auto text-lg sm:text-xl text-text-secondary leading-relaxed">
+            Millions of people with disabilities can&rsquo;t use most websites.
+            We&rsquo;re changing that from two sides&nbsp;&mdash; fixing the code that
+            breaks accessibility, and giving users the tools to navigate any site
+            on their own terms.
           </p>
+
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto text-left">
+            <div className="bg-surface rounded-xl p-6 border border-border">
+              <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">For website owners</p>
+              <p className="text-text font-bold text-lg mb-1">We fix your source code.</p>
+              <p className="text-text-secondary text-sm">
+                Not an overlay. We scan your site, find every accessibility violation,
+                and generate real code patches you can apply directly.
+              </p>
+            </div>
+            <div className="bg-surface rounded-xl p-6 border border-border">
+              <p className="text-sm font-semibold text-primary uppercase tracking-wide mb-2">For people with disabilities</p>
+              <p className="text-text font-bold text-lg mb-1">We help you navigate.</p>
+              <p className="text-text-secondary text-sm">
+                A digital assistant that scans any page, offers smart shortcuts,
+                and works with your assistive technology&nbsp;&mdash; never against it.
+              </p>
+            </div>
+          </div>
+
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="#scan"
