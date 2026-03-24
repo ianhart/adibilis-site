@@ -4,11 +4,22 @@ import FadeInSection from '../components/FadeInSection'
 export default function HomePage() {
   const [annualBilling, setAnnualBilling] = useState(false)
   const [scanUrl, setScanUrl] = useState('')
+  const [scanState, setScanState] = useState<'idle' | 'scanning' | 'done' | 'error'>('idle')
+  const [scanResult, setScanResult] = useState<{ passRate: number; violations: number; url: string } | null>(null)
 
-  const handleScanSubmit = (e: React.FormEvent) => {
+  const handleScanSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Placeholder — would trigger scan
-    alert(`Scan requested for: ${scanUrl}`)
+    setScanState('scanning')
+    setScanResult(null)
+    try {
+      const res = await fetch(`https://adibilis-api-production.up.railway.app/scan/free?url=${encodeURIComponent(scanUrl)}`)
+      const data = await res.json()
+      if (data.error) throw new Error(data.error)
+      setScanResult({ passRate: data.passRate, violations: data.violations?.length || 0, url: scanUrl })
+      setScanState('done')
+    } catch {
+      setScanState('error')
+    }
   }
 
   return (
@@ -131,11 +142,13 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-2xl font-bold text-text mb-2">Tirani</h3>
                 <p className="text-text-secondary text-lg mb-6">
-                  Scans your site. Fixes your code. Documents everything.
+                  Scans your site. Fixes your source code. Documents everything.
                 </p>
                 <ul className="space-y-3 text-text-secondary" role="list">
                   {[
                     'Source-code fixes, not overlay patches',
+                    'Detailed reports with specific infractions and remediation steps',
+                    'Auto-generates accessibility page when site becomes compliant',
                     'Auto-generated VPAT documentation',
                     'Court-defensible audit trail',
                     'Continuous monitoring with regression alerts',
@@ -170,13 +183,16 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-2xl font-bold text-text mb-2">AIDA</h3>
                 <p className="text-text-secondary text-lg mb-6">
-                  Your guide to any website.
+                  Accessible Inclusive Digital Assistant — your guide to any website.
                 </p>
                 <ul className="space-y-3 text-text-secondary" role="list">
                   {[
-                    'Page summaries and heading navigation',
-                    'Works WITH assistive technology, not against it',
-                    'Never modifies existing page elements',
+                    'Context-aware page scanning with smart shortcuts',
+                    'Accessibility scan with actionable remediation',
+                    'Barrier reporting — users tell you what\'s broken',
+                    'Display preferences: contrast, font size, dyslexia fonts',
+                    'Keyboard navigation guide and OS settings help',
+                    'Works WITH assistive technology, never against it',
                     'Included free with all Tirani plans',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
@@ -221,12 +237,12 @@ export default function HomePage() {
             </h2>
           </FadeInSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {[
               {
                 step: '1',
                 title: 'Scan',
-                desc: 'Enter your URL and get a detailed accessibility score in seconds. We test against every WCAG 2.2 success criterion.',
+                desc: 'Enter your URL and get a detailed accessibility report in seconds. Tirani tests against every WCAG 2.2 success criterion and lists each infraction with specific remediation steps.',
                 icon: (
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -236,7 +252,7 @@ export default function HomePage() {
               {
                 step: '2',
                 title: 'Fix',
-                desc: 'Review auto-generated source-code fixes. Apply them with one click or export the patches for your dev team.',
+                desc: 'Tirani generates source-code patches for every issue found. Apply them directly or export for your dev team. Once compliant, an accessibility statement page is auto-generated.',
                 icon: (
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.3-3.06a1.5 1.5 0 010-2.59l5.3-3.06a1.5 1.5 0 012.16 1.3v6.12a1.5 1.5 0 01-2.16 1.29zM20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75" />
@@ -245,8 +261,18 @@ export default function HomePage() {
               },
               {
                 step: '3',
+                title: 'Deploy AIDA',
+                desc: 'Add one script tag to your site. AIDA gives your users page navigation, accessibility scanning, barrier reporting, and display preferences — all without modifying your code.',
+                icon: (
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                ),
+              },
+              {
+                step: '4',
                 title: 'Monitor',
-                desc: 'Daily scans catch regressions before plaintiffs do. Get alerts the moment new issues appear.',
+                desc: 'Daily scans catch regressions before plaintiffs do. Barrier reports from real users flow into your dashboard. Get alerts the moment new issues appear.',
                 icon: (
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -610,7 +636,7 @@ export default function HomePage() {
                 problems.
               </p>
               <footer className="mt-6 text-text font-semibold">
-                &mdash; The Founder
+                &mdash; Ivan Adidjaja, Founder
               </footer>
             </blockquote>
           </FadeInSection>
@@ -656,15 +682,36 @@ export default function HomePage() {
               />
               <button
                 type="submit"
-                className="px-8 py-3 bg-white text-primary font-bold rounded-lg text-lg hover:bg-blue-50 border-none cursor-pointer min-h-[48px] transition-colors"
+                disabled={scanState === 'scanning'}
+                className="px-8 py-3 bg-white text-primary font-bold rounded-lg text-lg hover:bg-blue-50 border-none cursor-pointer min-h-[48px] transition-colors disabled:opacity-70 disabled:cursor-wait"
               >
-                Scan Now
+                {scanState === 'scanning' ? 'Scanning...' : 'Scan Now'}
               </button>
             </form>
-            <p id="scan-help" className="text-blue-200 text-sm mt-3">
-              We&rsquo;ll scan your homepage and generate a free accessibility
-              report.
-            </p>
+            {scanState === 'idle' && (
+              <p id="scan-help" className="text-blue-200 text-sm mt-3">
+                We&rsquo;ll scan your homepage and generate a free accessibility
+                report.
+              </p>
+            )}
+            {scanState === 'done' && scanResult && (
+              <div className="mt-6 bg-white/10 backdrop-blur rounded-xl p-6 max-w-xl mx-auto text-left">
+                <p className="text-white text-lg font-bold mb-2">
+                  {scanResult.passRate}% Pass Rate
+                </p>
+                <p className="text-blue-100 text-sm">
+                  Found {scanResult.violations} issue{scanResult.violations !== 1 ? 's' : ''} on {scanResult.url}
+                </p>
+                <p className="text-blue-200 text-sm mt-3">
+                  Sign up for a full report with specific fixes for every issue.
+                </p>
+              </div>
+            )}
+            {scanState === 'error' && (
+              <p className="text-red-200 text-sm mt-3">
+                Something went wrong. Please check the URL and try again.
+              </p>
+            )}
           </FadeInSection>
         </div>
       </section>
