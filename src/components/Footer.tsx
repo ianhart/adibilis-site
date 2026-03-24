@@ -25,7 +25,7 @@ export default function Footer() {
             <h2 className="text-lg font-semibold text-white mb-4">Company</h2>
             <ul className="space-y-2 list-none p-0 m-0">
               <li>
-                <a href="#story" className="text-gray-300 hover:text-white no-underline transition-colors">
+                <a href="#results" className="text-gray-300 hover:text-white no-underline transition-colors">
                   About
                 </a>
               </li>

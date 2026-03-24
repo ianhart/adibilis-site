@@ -401,7 +401,7 @@ export default function HomePage() {
                       Starting price
                     </td>
                     <td className="py-3 px-4 text-center bg-primary-light font-bold text-primary text-sm">
-                      Free
+                      $9/mo
                     </td>
                     <td className="py-3 px-4 text-center text-text-secondary text-sm">
                       $49/mo
@@ -466,7 +466,7 @@ export default function HomePage() {
                 className={`text-sm font-medium ${annualBilling ? 'text-text' : 'text-text-secondary'}`}
               >
                 Annual{' '}
-                <span className="text-success font-semibold">(save 17%)</span>
+                <span className="text-success font-semibold">(save 20%)</span>
               </span>
             </div>
 
@@ -476,7 +476,7 @@ export default function HomePage() {
             </p>
           </FadeInSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
               {
                 name: 'Free',
@@ -487,9 +487,9 @@ export default function HomePage() {
                 popular: false,
               },
               {
-                name: 'Starter',
-                price: annualBilling ? 66 : 79,
-                desc: 'For small sites getting started',
+                name: 'Personal',
+                price: annualBilling ? 7 : 9,
+                desc: 'For personal sites and small projects',
                 features: [
                   '1 site, 50 pages',
                   'Weekly scans',
@@ -501,33 +501,19 @@ export default function HomePage() {
               },
               {
                 name: 'Business',
-                price: annualBilling ? 165 : 199,
-                desc: 'For growing businesses',
+                price: annualBilling ? 12 : 15,
+                desc: 'For businesses that need compliance',
                 features: [
                   '1 site, 500 pages',
                   'Daily scans',
                   'Source-code fixes',
                   'VPAT generation',
                   'Audit trail',
+                  'Barrier reports dashboard',
                   'AIDA included',
                 ],
                 cta: 'Start Free Trial',
                 popular: true,
-              },
-              {
-                name: 'Agency',
-                price: annualBilling ? 415 : 499,
-                desc: 'For agencies managing clients',
-                features: [
-                  '10 sites',
-                  'Daily scans',
-                  'White-label reports',
-                  'API access',
-                  'VPAT generation',
-                  'AIDA included',
-                ],
-                cta: 'Start Free Trial',
-                popular: false,
               },
               {
                 name: 'Enterprise',
@@ -607,39 +593,47 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============ FOUNDER STORY ============ */}
+      {/* ============ SOCIAL PROOF / RESULTS ============ */}
       <section
-        id="story"
-        aria-labelledby="story-heading"
+        id="results"
+        aria-labelledby="results-heading"
         className="bg-white py-20 sm:py-24"
         tabIndex={-1}
       >
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection>
             <h2
-              id="story-heading"
-              className="text-3xl sm:text-4xl font-bold text-text text-center mb-8"
+              id="results-heading"
+              className="text-3xl sm:text-4xl font-bold text-text text-center mb-4"
             >
-              Why I built Adibilis
+              Your overlay is a liability. We&rsquo;re the fix.
             </h2>
-            <blockquote className="border-l-4 border-primary pl-6 text-text-secondary text-lg leading-relaxed">
-              <p>
-                I kept getting sued despite using accessibility overlays. Lawyers
-                would send demand letters, and the overlays my sites relied on
-                couldn&rsquo;t stand up in court because they never actually fixed
-                anything. The broken HTML was still there underneath the widget.
-              </p>
-              <p className="mt-4">
-                So I built something that actually works. Adibilis scans your
-                source code, generates real fixes, and documents every change so
-                you have a court-defensible audit trail. No more painting over
-                problems.
-              </p>
-              <footer className="mt-6 text-text font-semibold">
-                &mdash; Ivan Adidjaja, Founder
-              </footer>
-            </blockquote>
+            <p className="text-text-secondary text-lg text-center max-w-2xl mx-auto mb-16">
+              Every overlay lawsuit starts the same way: broken HTML hidden behind a widget.
+              Adibilis eliminates the root cause.
+            </p>
           </FadeInSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <FadeInSection>
+              <div className="text-center p-6">
+                <p className="text-5xl font-extrabold text-primary mb-2">100%</p>
+                <p className="text-text-secondary">Source-code fixes. Zero overlay patches.</p>
+              </div>
+            </FadeInSection>
+            <FadeInSection>
+              <div className="text-center p-6">
+                <p className="text-5xl font-extrabold text-primary mb-2">1 tag</p>
+                <p className="text-text-secondary">Add one script tag. AIDA deploys instantly across your entire site.</p>
+              </div>
+            </FadeInSection>
+            <FadeInSection>
+              <div className="text-center p-6">
+                <p className="text-5xl font-extrabold text-primary mb-2">24/7</p>
+                <p className="text-text-secondary">Real users report real barriers. You fix them before lawyers find them.</p>
+              </div>
+            </FadeInSection>
+          </div>
         </div>
       </section>
 
