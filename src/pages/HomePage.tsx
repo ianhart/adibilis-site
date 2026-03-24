@@ -150,19 +150,19 @@ export default function HomePage() {
               Two products. One mission.
             </h2>
             <p className="text-text-secondary text-lg text-center max-w-2xl mx-auto mb-16">
-              Tirani fixes websites for owners. AIDA helps disabled users navigate
+              We fix websites for owners. We help disabled users navigate
               any site. Together, they make the web accessible from both sides.
             </p>
           </FadeInSection>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Tirani */}
+            {/* Scan & Fix */}
             <FadeInSection>
               <div className="border-2 border-primary rounded-2xl p-8 sm:p-10 h-full">
                 <div className="inline-block bg-primary-light text-primary text-sm font-semibold px-3 py-1 rounded-full mb-4">
                   For website owners
                 </div>
-                <h3 className="text-2xl font-bold text-text mb-2">Tirani</h3>
+                <h3 className="text-2xl font-bold text-text mb-2">Scan &amp; Fix Engine</h3>
                 <p className="text-text-secondary text-lg mb-6">
                   Scans your site. Fixes your source code. Documents everything.
                 </p>
@@ -203,9 +203,9 @@ export default function HomePage() {
                 <div className="inline-block bg-primary-light text-primary text-sm font-semibold px-3 py-1 rounded-full mb-4">
                   For disabled users
                 </div>
-                <h3 className="text-2xl font-bold text-text mb-2">AIDA</h3>
+                <h3 className="text-2xl font-bold text-text mb-2">Navigation Assistant</h3>
                 <p className="text-text-secondary text-lg mb-6">
-                  Accessible Inclusive Digital Assistant — your guide to any website.
+                  A digital assistant that helps users navigate any website on their own terms.
                 </p>
                 <ul className="space-y-3 text-text-secondary" role="list">
                   {[
@@ -215,7 +215,7 @@ export default function HomePage() {
                     'Display preferences: contrast, font size, dyslexia fonts',
                     'Keyboard navigation guide and OS settings help',
                     'Works WITH assistive technology, never against it',
-                    'Included free with all Tirani plans',
+                    'Included free with all plans',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3">
                       <svg
@@ -264,7 +264,7 @@ export default function HomePage() {
               {
                 step: '1',
                 title: 'Scan',
-                desc: 'Enter your URL and get a detailed accessibility report in seconds. Tirani tests against every WCAG 2.2 success criterion and lists each infraction with specific remediation steps.',
+                desc: 'Enter your URL and get a detailed accessibility report in seconds. We test against every WCAG 2.2 success criterion and list each infraction with specific remediation steps.',
                 icon: (
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -274,7 +274,7 @@ export default function HomePage() {
               {
                 step: '2',
                 title: 'Fix',
-                desc: 'Tirani generates source-code patches for every issue found. Apply them directly or export for your dev team. Once compliant, an accessibility statement page is auto-generated.',
+                desc: 'We generate source-code patches for every issue found. Apply them directly or export for your dev team. Once compliant, an accessibility statement page is auto-generated.',
                 icon: (
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17l-5.3-3.06a1.5 1.5 0 010-2.59l5.3-3.06a1.5 1.5 0 012.16 1.3v6.12a1.5 1.5 0 01-2.16 1.29zM20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75" />
@@ -283,8 +283,8 @@ export default function HomePage() {
               },
               {
                 step: '3',
-                title: 'Deploy AIDA',
-                desc: 'Add one script tag to your site. AIDA gives your users page navigation, accessibility scanning, barrier reporting, and display preferences — all without modifying your code.',
+                title: 'Assist',
+                desc: 'Add one script tag to your site. Our navigation assistant gives your users page navigation, accessibility scanning, barrier reporting, and display preferences — all without modifying your code.',
                 icon: (
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -335,8 +335,7 @@ export default function HomePage() {
               See how we compare
             </h2>
             <p className="text-text-secondary text-lg text-center max-w-2xl mx-auto mb-12">
-              Adibilis is the only platform that fixes your source code AND
-              remains affordable.
+              Same price as an overlay. But we actually fix your code.
             </p>
           </FadeInSection>
 
@@ -388,8 +387,8 @@ export default function HomePage() {
                       values: [true, true, true, false],
                     },
                     {
-                      feature: 'Affordable pricing',
-                      values: [true, true, true, false],
+                      feature: 'No overlay risk',
+                      values: [true, false, false, true],
                     },
                   ].map(({ feature, values }) => (
                     <tr key={feature} className="border-b border-border">
@@ -423,7 +422,7 @@ export default function HomePage() {
                       Starting price
                     </td>
                     <td className="py-3 px-4 text-center bg-primary-light font-bold text-primary text-sm">
-                      $9/mo
+                      $49/mo
                     </td>
                     <td className="py-3 px-4 text-center text-text-secondary text-sm">
                       $49/mo
@@ -458,7 +457,7 @@ export default function HomePage() {
               Simple, transparent pricing
             </h2>
             <p className="text-text-secondary text-lg text-center max-w-2xl mx-auto mb-4">
-              Every plan includes AIDA. Start free, upgrade when you&rsquo;re ready.
+              Every plan includes our navigation assistant. Start free, upgrade when you&rsquo;re ready.
             </p>
 
             {/* Billing toggle */}
@@ -504,51 +503,54 @@ export default function HomePage() {
                 name: 'Free',
                 price: 0,
                 desc: 'One-time scan to see your score',
-                features: ['1 scan', 'Accessibility score', 'Issue breakdown'],
-                cta: 'Get Started',
+                features: ['1 URL scan', 'Accessibility score (A–F)', 'Top 10 issues breakdown', 'No credit card required'],
+                cta: 'Scan Now',
                 popular: false,
               },
               {
-                name: 'Personal',
-                price: annualBilling ? 7 : 9,
-                desc: 'For personal sites and small projects',
+                name: 'Starter',
+                price: annualBilling ? 39 : 49,
+                desc: 'For small sites and personal projects',
                 features: [
-                  '1 site, 50 pages',
+                  '1 site, up to 25 pages',
                   'Weekly scans',
-                  'Source-code fixes',
-                  'AIDA included',
+                  'Top 15 auto-fixes',
+                  'Navigation assistant included',
+                  'Email support',
                 ],
                 cta: 'Start Free Trial',
                 popular: false,
               },
               {
-                name: 'Business',
-                price: annualBilling ? 12 : 15,
-                desc: 'For businesses that need compliance',
+                name: 'Pro',
+                price: annualBilling ? 119 : 149,
+                desc: 'For growing businesses',
                 features: [
-                  '1 site, 500 pages',
+                  '1 site, up to 200 pages',
                   'Daily scans',
-                  'Source-code fixes',
+                  'Full auto-fix suite',
                   'VPAT generation',
-                  'Audit trail',
-                  'Barrier reports dashboard',
-                  'AIDA included',
+                  'Monthly compliance reports',
+                  'Navigation assistant included',
+                  'Priority support',
                 ],
                 cta: 'Start Free Trial',
                 popular: true,
               },
               {
-                name: 'Enterprise',
-                price: -1,
-                desc: 'Custom solutions at scale',
+                name: 'Business',
+                price: annualBilling ? 239 : 299,
+                desc: 'For compliance-critical organizations',
                 features: [
-                  'Unlimited sites',
-                  'Custom integrations',
-                  'Dedicated support',
-                  'SLA guarantees',
-                  'AIDA included',
+                  '1 site, up to 1,000 pages',
+                  'Daily scans + real-time monitoring',
+                  'Full auto-fix + AI alt text',
+                  'Court-defensible audit trail',
+                  'Auto-generated accessibility statement',
+                  'Barrier reports dashboard',
+                  'Navigation assistant included',
                 ],
-                cta: 'Contact Sales',
+                cta: 'Start Free Trial',
                 popular: false,
               },
             ].map((plan) => (
@@ -646,7 +648,7 @@ export default function HomePage() {
             <FadeInSection>
               <div className="text-center p-6">
                 <p className="text-5xl font-extrabold text-primary mb-2">1 tag</p>
-                <p className="text-text-secondary">Add one script tag. AIDA deploys instantly across your entire site.</p>
+                <p className="text-text-secondary">Add one script tag. The navigation assistant deploys instantly across your entire site.</p>
               </div>
             </FadeInSection>
             <FadeInSection>
