@@ -16,7 +16,7 @@ interface AuthContextValue {
   isReady: boolean
   isAuthenticated: boolean
   login: (email: string, password: string) => Promise<AuthUser>
-  register: (input: { email: string; password: string; name: string }) => Promise<AuthUser>
+  register: (input: { email: string; password: string; name: string; betaCode?: string }) => Promise<AuthUser>
   refreshUser: () => Promise<AuthUser | null>
   syncUser: (user: AuthUser) => void
   logout: () => void

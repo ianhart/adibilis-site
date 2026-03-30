@@ -773,34 +773,46 @@ export default function DashboardPage() {
                     </div>
                   ) : (
                     selectedSite.scans.map((scan) => (
-                      <button
+                      <div
                         key={scan.id}
-                        type="button"
-                        onClick={() => void handleSelectScan(scan.id)}
-                        className={`w-full rounded-2xl border p-4 text-left transition-colors ${
+                        className={`rounded-2xl border transition-colors ${
                           selectedScanId === scan.id
                             ? 'border-primary bg-primary-light'
                             : 'border-border bg-white hover:border-primary/50'
                         }`}
                       >
-                        <div className="flex flex-wrap items-center justify-between gap-3">
-                          <div>
-                            <p className="m-0 text-sm font-semibold text-text">
-                              {scan.status === 'completed'
-                                ? `Pass rate ${scan.passRate ?? 0}%`
-                                : scan.status.charAt(0).toUpperCase() + scan.status.slice(1)}
-                            </p>
-                            <p className="m-0 text-xs text-text-secondary">{formatDate(scan.createdAt)}</p>
+                        <button
+                          type="button"
+                          onClick={() => void handleSelectScan(scan.id)}
+                          className="w-full p-4 text-left"
+                        >
+                          <div className="flex flex-wrap items-center justify-between gap-3">
+                            <div>
+                              <p className="m-0 text-sm font-semibold text-text">
+                                {scan.status === 'completed'
+                                  ? `Pass rate ${scan.passRate ?? 0}%`
+                                  : scan.status.charAt(0).toUpperCase() + scan.status.slice(1)}
+                              </p>
+                              <p className="m-0 text-xs text-text-secondary">{formatDate(scan.createdAt)}</p>
+                            </div>
+                            <span className="rounded-full bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-primary">
+                              {scan.pagesScanned ?? 1} page{scan.pagesScanned === 1 ? '' : 's'}
+                            </span>
                           </div>
-                          <span className="rounded-full bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-primary">
-                            {scan.pagesScanned ?? 1} page{scan.pagesScanned === 1 ? '' : 's'}
-                          </span>
+                          <p className="mt-3 m-0 text-xs text-text-secondary">
+                            {scan.critical + scan.serious + scan.moderate + scan.minor} findings
+                            {scan.completedAt ? ` • Completed ${formatDate(scan.completedAt)}` : ''}
+                          </p>
+                        </button>
+                        <div className="border-t border-border/50 px-4 py-2.5">
+                          <Link
+                            to={`/app/scans/${scan.id}`}
+                            className="text-xs font-semibold text-primary no-underline hover:underline"
+                          >
+                            View full details &rarr;
+                          </Link>
                         </div>
-                        <p className="mt-3 m-0 text-xs text-text-secondary">
-                          {scan.critical + scan.serious + scan.moderate + scan.minor} findings
-                          {scan.completedAt ? ` • Completed ${formatDate(scan.completedAt)}` : ''}
-                        </p>
-                      </button>
+                      </div>
                     ))
                   )}
                 </div>

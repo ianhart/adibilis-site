@@ -7,6 +7,7 @@ import AppLayout from './layouts/AppLayout'
 import AuthPage from './pages/AuthPage'
 import DashboardPage from './pages/DashboardPage'
 import BillingPage from './pages/BillingPage'
+import ScanDetailPage from './pages/ScanDetailPage'
 import { AuthProvider, useAuth } from './context/AuthContext'
 
 function LoadingScreen() {
@@ -83,6 +84,7 @@ function App() {
           }
         >
           <Route index element={<DashboardPage />} />
+          <Route path="scans/:scanId" element={<ScanDetailPage />} />
           <Route path="billing" element={<BillingPage />} />
         </Route>
 
