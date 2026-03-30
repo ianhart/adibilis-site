@@ -1,16 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0054a5;
-  --color-primary-dark: #003d7a;
-  --color-primary-light: #e8f0fe;
-  --color-text: #1a1a2e;
-  --color-text-secondary: #4b5563;
-  --color-surface: #f8f9fb;
-  --color-success: #059669;
-  --color-warning: #d97706;
-  --color-error: #dc2626;
-  --color-border: #e5e7eb;
+  --color-primary: #304236;
+  --color-primary-dark: #243229;
+  --color-primary-light: #edf1eb;
+  --color-text: #211c18;
+  --color-text-secondary: #61554b;
+  --color-surface: #f6f0e8;
+  --color-success: #3d6b50;
+  --color-warning: #ad6b1f;
+  --color-error: #a33f2f;
+  --color-border: #dfd4c8;
+  --font-sans: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
 }
 
 html {
@@ -32,11 +35,16 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
-  color: #1a1a2e;
-  background-color: #ffffff;
+  font-family: var(--font-sans);
+  color: #211c18;
+  background-color: #f7f1e8;
   line-height: 1.6;
   margin: 0;
+}
+
+::selection {
+  background: #304236;
+  color: #ffffff;
 }
 
 /* Skip navigation */
@@ -57,25 +65,25 @@ body {
   width: auto;
   height: auto;
   padding: 1rem 1.5rem;
-  background: #0054a5;
+  background: #304236;
   color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
   z-index: 100;
-  outline: 3px solid #003d7a;
+  outline: 3px solid #243229;
   outline-offset: 2px;
 }
 
 /* Focus indicators - AAA compliant */
 *:focus-visible {
-  outline: 3px solid #0054a5;
+  outline: 3px solid #304236;
   outline-offset: 2px;
 }
 
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {
-  outline: 3px solid #0054a5;
+  outline: 3px solid #304236;
   outline-offset: 2px;
 }
 

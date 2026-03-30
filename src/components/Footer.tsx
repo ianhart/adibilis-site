@@ -1,130 +1,88 @@
+import { Link } from 'react-router-dom'
+
+const footerGroups = [
+  {
+    title: 'Platform',
+    links: [
+      { label: 'Scan & fix engine', href: '/#products' },
+      { label: 'Live assistant', href: '/#products' },
+      { label: 'Pricing', href: '/#pricing' },
+    ],
+  },
+  {
+    title: 'Workflow',
+    links: [
+      { label: 'Free scan', href: '/#scan' },
+      { label: 'How it works', href: '/#how-it-works' },
+      { label: 'Why Adibilis', href: '/#compare' },
+    ],
+  },
+]
+
 export default function Footer() {
   return (
-    <footer className="bg-text text-white py-16" role="contentinfo">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          {/* Products */}
-          <div>
-            <h2 className="text-lg font-semibold text-white mb-4">Products</h2>
-            <ul className="space-y-2 list-none p-0 m-0">
-              <li>
-                <a href="#products" className="text-gray-300 hover:text-white no-underline transition-colors">
-                  Tirani
-                </a>
-              </li>
-              <li>
-                <a href="#products" className="text-gray-300 hover:text-white no-underline transition-colors">
-                  AIDA
-                </a>
-              </li>
-            </ul>
+    <footer className="bg-[#26352c] py-16 text-white" role="contentinfo">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 border-b border-white/10 pb-12 lg:grid-cols-[1.2fr_0.8fr_0.8fr_0.9fr]">
+          <div className="max-w-md">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#f0c7b8]">
+              Adibilis
+            </p>
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight">
+              Accessibility remediation that reaches both the codebase and the person using it.
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-slate-300">
+              Our Accessibility Scan &amp; Fix Engine, powered by Tirani, routes WCAG-grounded fixes.
+              Our Live Accessibility Assistant, powered by AIDA, helps visitors navigate,
+              orient, and report barriers.
+            </p>
           </div>
 
-          {/* Company */}
-          <div>
-            <h2 className="text-lg font-semibold text-white mb-4">Company</h2>
-            <ul className="space-y-2 list-none p-0 m-0">
-              <li>
-                <a href="#results" className="text-gray-300 hover:text-white no-underline transition-colors">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white no-underline transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white no-underline transition-colors">
-                  Accessibility Statement
-                </a>
-              </li>
-            </ul>
-          </div>
+          {footerGroups.map((group) => (
+            <div key={group.title}>
+              <h3 className="font-display text-lg font-semibold text-white">{group.title}</h3>
+              <ul className="mt-4 space-y-3 list-none p-0">
+                {group.links.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-sm text-slate-300 no-underline transition-colors hover:text-white"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
-          {/* Resources */}
           <div>
-            <h2 className="text-lg font-semibold text-white mb-4">Resources</h2>
-            <ul className="space-y-2 list-none p-0 m-0">
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white no-underline transition-colors">
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white no-underline transition-colors">
-                  API
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white no-underline transition-colors">
-                  Status
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h2 className="text-lg font-semibold text-white mb-4">Legal</h2>
-            <ul className="space-y-2 list-none p-0 m-0">
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white no-underline transition-colors">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white no-underline transition-colors">
-                  Terms of Service
-                </a>
-              </li>
-            </ul>
+            <h3 className="font-display text-lg font-semibold text-white">Account</h3>
+            <div className="mt-4 space-y-3">
+              <Link
+                to="/signup"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-[#bf5b3d] px-5 py-3 text-sm font-semibold text-white no-underline transition-colors hover:bg-[#a44c32]"
+              >
+                Create workspace
+              </Link>
+              <div>
+                <Link
+                  to="/login"
+                  className="text-sm text-slate-300 no-underline transition-colors hover:text-white"
+                >
+                  Log in
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-gray-700 pt-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-center sm:text-left">
-              <p className="text-gray-300 text-sm">
-                Built accessible from day one. This site meets WCAG 2.2 Level AAA.
-              </p>
-              <p className="text-gray-400 text-sm mt-1">
-                &copy; {new Date().getFullYear()} Adibilis. All rights reserved.
-              </p>
-            </div>
-
-            {/* Social links */}
-            <div className="flex items-center gap-4" aria-label="Social media links">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="X (formerly Twitter)"
-              >
-                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors"
-                aria-label="GitHub"
-              >
-                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-                </svg>
-              </a>
-            </div>
+        <div className="flex flex-col gap-3 pt-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p>Built with accessible defaults, keyboard support, and strong focus states.</p>
+            <p className="mt-1">Selected illustrations are licensed via Freepik for this marketing experience.</p>
           </div>
+          <p>&copy; {new Date().getFullYear()} Adibilis. All rights reserved.</p>
         </div>
       </div>
     </footer>
