@@ -41,7 +41,7 @@ const engineCards = [
     badge: 'For website owners',
     title: 'We fix your source code.',
     description:
-      'Not an overlay. We scan your site, map issues to WCAG guidance, and route real remediation work with platform-aware fix paths.',
+      'Not an overlay. We launch real browsers, render every page, and run up to 9 scanning engines per page. That takes minutes instead of seconds — because we test the way your users actually experience the site.',
     image: '/freepik/dashboard-engine.jpg',
     alt: 'Illustration of a dashboard and analytics interface',
     features: [
@@ -76,25 +76,25 @@ const workflowSteps = [
     step: '01',
     title: 'Run a free Tirani scan',
     description:
-      'Scan a public URL and get a WCAG-grounded preview of pass rate, top findings, and platform detection before you create an account.',
+      'Paste a URL and Tirani scans every page with up to 9 engines and 700+ accessibility rules. This takes minutes, not seconds — because real browsers render each page and test it the way users actually experience it.',
   },
   {
     step: '02',
-    title: 'Create the workspace',
+    title: 'Get results by email',
     description:
-      'Carry your scan into the dashboard, connect the site, and let Tirani classify the platform so fixes can be routed correctly.',
+      'Ensemble scans are thorough — a 10-page site takes 5\u201315 minutes across all engines. You\u2019ll get an email when your report is ready so you can close the tab and come back when it\u2019s done.',
   },
   {
     step: '03',
     title: 'Ship remediation',
     description:
-      'Apply direct patches where possible and use guided implementation where platforms lock down the markup.',
+      'Tirani generates paste-ready code patches for each violation, routed by platform. Apply direct patches on custom sites or follow guided steps for WordPress, Shopify, and closed builders.',
   },
   {
     step: '04',
     title: 'Install AIDA and monitor',
     description:
-      'Install the assistant, collect barrier reports, and keep scanning so regressions are caught before they become legal or customer problems.',
+      'Add the AIDA accessibility assistant, collect barrier reports from real users, and let Tirani rescan on a schedule so regressions are caught before they become legal problems.',
   },
 ]
 
@@ -349,9 +349,9 @@ export default function HomePage() {
 
                   {scanState === 'idle' && !signupPrompt && (
                     <p className="mt-3 text-sm text-text-secondary">
-                      Tirani checks only the exact page you paste here, maps the findings to WCAG
-                      guidance, and shows what can move into remediation before you create a
-                      workspace.
+                      Tirani renders the page in a real browser and tests it with axe-core.
+                      Free scans take about 30 seconds. Paid plans run up to 9 engines — we'll
+                      email you when the full report is ready.
                     </p>
                   )}
                   {scanState === 'scanning' && (
